@@ -80,14 +80,6 @@
             </Group> 
           </FakeHapticsDevice> 
         </DeviceInfo>
-		<!--PythonScript DEF='PythonScript' url='rotation.py'>
-			<IS>
-				<connect nodeField='pitch' protoField='set_pitch'/>
-				<connect nodeField='roll' protoField='set_roll'/>
-				<connect nodeField='yaw' protoField='set_yaw'/>
-			</IS>
-			<ROUTE fromNode='PythonScript' fromField='rot_calculator' toNode='FakeHapticsDevice' toField='set_deviceOrientation'/>
-		</PythonScript-->
 			
 		
       </ProtoBody>
