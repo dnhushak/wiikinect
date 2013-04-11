@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<X3D profile='immersive' version='3.2'>
+  <Scene>
+    <ProtoDeclare name='KinectProxy'>
+      <ProtoInterface>
+        <field name='radius' type='SFFloat' accessType='inputOutput' value='0.01'/>
+        <field name='diffuseColor' type='SFColor' accessType='inputOutput' value='0.28 0.28 0.28'/>
+        <field name='specularColor' type='SFColor' accessType='inputOutput' value='0.0 0.0 0.0'/>
+        <field name='emissiveColor' type='SFColor' accessType='inputOutput' value='0.0 0.0 0.0'/>
+        <field name='ambientIntensity' type='SFFloat' accessType='inputOutput' value='.0167'/>
+        <field name='shininess' type='SFFloat' accessType='inputOutput' value='1.0'/>
+        <field name='transparency' type='SFFloat' accessType='inputOutput' value='0.0'/>
+        <field name='set_devicePosition' type='SFVec3f' accessType='inputOnly' value='0.0 0.0 0.0'/>
+        <field name='set_mainButton' type='SFBool' accessType='inputOnly' value='false'/>
+        <field name='set_bind' type='SFBool' accessType='inputOnly' value='true'/>
+      </ProtoInterface> 
+      <ProtoBody>
+        <DeviceInfo>
+		<IS>
+			<connect nodeField='set_bind' protoField='set_bind'/>
+		</IS>
+          <FakeHapticsDevice followViewpoint='false'>
+			<IS>
+				<connect nodeField='set_devicePosition' protoField='set_devicePosition'/>
+				<connect nodeField='set_mainButton' protoField='set_mainButton'/>
+			</IS>
+            <RuspiniRenderer/>
+            <Group containerField = 'stylus'> 
+              <Shape> 
+                <Appearance>
+                  <Material>
+					<IS>
+						<connect nodeField='diffuseColor' protoField='diffuseColor'/>
+						<connect nodeField='specularColor' protoField='specularColor'/>
+						<connect nodeField='emissiveColor' protoField='emissiveColor'/>
+						<connect nodeField='ambientIntensity' protoField='ambientIntensity'/>
+						<connect nodeField='shininess' protoField='shininess'/>
+						<connect nodeField='transparency' protoField='transparency'/>
+					</IS>
+				  </Material>
+                </Appearance> 
+                <Sphere> 
+                  <IS>
+                    <connect nodeField='radius' protoField='radius'/>
+                  </IS>
+                </Sphere>
+              </Shape> 
+            </Group> 
+          </FakeHapticsDevice> 
+        </DeviceInfo>
+      </ProtoBody>
+    </ProtoDeclare>
+  </Scene>
+</X3D>

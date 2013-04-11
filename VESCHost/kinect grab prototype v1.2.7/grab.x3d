@@ -1,0 +1,61 @@
+<Scene>
+<!--Either an ExternProtoDeclare or the inline version of ProtoDeclare are required to use a ProtoInstance -->
+<ExternProtoDeclare name='GrabAndMoveTransform' url='grabExtern.x3d#GrabAndMoveTransform'>
+  <field accessType='inputOutput' name='geometry' type='SFNode'/>
+  <field accessType='inputOutput' name='material' type='SFNode'/>
+  <field accessType='inputOutput' name='surface' type='SFNode'/>
+  <field accessType='inputOutput' name='translation' type='SFVec3f'/>  
+</ExternProtoDeclare>
+
+
+<Group>
+  <!-- Instances -->
+
+<Group DEF="grid">
+</Group>
+
+<PythonScript url="grid.py">
+	<Group USE="grid" containerField="references"/>
+</PythonScript>
+
+  <!-- Defines a surface and geometry but uses default material -->
+  <Transform translation='0 .05 0'>
+    <ProtoInstance name='GrabAndMoveTransform'>
+      <fieldValue name='geometry'>
+        <Sphere DEF="ball" radius='0.04'/>
+      </fieldValue>
+      <fieldValue name='surface'>
+        <SmoothSurface stiffness='.1'/>
+      </fieldValue>
+
+    </ProtoInstance>
+  </Transform>
+
+  <!-- Defines all three fields -->  
+  <Transform translation='0 .5 0'>
+    <ProtoInstance name='GrabAndMoveTransform' containerField='whathaveyou'>
+      <fieldValue name='geometry'>
+        <Cylinder DEF="cyl" radius='0.06' height = '0.01'/>
+      </fieldValue>
+      <fieldValue name='material'>
+        <Material diffuseColor='.1 .7 .8'/>
+      </fieldValue>
+      <fieldValue name='surface'>
+        <FrictionalSurface damping='0' dynamicFriction='0.2' staticFriction='0.8' stiffness='1'/>
+      </fieldValue>
+    </ProtoInstance>
+  </Transform>
+  
+  <!-- Defines material and geometry but uses default surface. -->
+  <Transform translation='0 .1 0'>
+    <ProtoInstance name='GrabAndMoveTransform'>
+      <fieldValue name='geometry'>
+        <Rectangle2D DEF="rect" size='.03 .1'/>
+      </fieldValue>
+      <fieldValue name='material'>
+        <Material diffuseColor='0 1 0'/>
+      </fieldValue>
+    </ProtoInstance>
+  </Transform>
+</Group>
+</Scene>

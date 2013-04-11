@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<X3D profile='immersive' version='3.2'>
+  <Scene>
+    <ProtoDeclare name='WiiProxy'>
+      <ProtoInterface>
+        <field name='set_pitch' type='SFFloat' accessType='inputOutput' value='0'/>
+        <field name='set_roll' type='SFFloat' accessType='inputOutput' value='0'/>
+        <field name='set_yaw' type='SFFloat' accessType='inputOutput' value='0'/>
+        <field name='set_devicePosition' type='SFVec3f' accessType='inputOnly' value='0.0 0.0 0.0'/>
+        <field name='set_mainButton' type='SFBool' accessType='inputOnly' value='false'/>
+        <field name='set_bind' type='SFBool' accessType='inputOnly' value='true'/>
+      </ProtoInterface> 
+      <ProtoBody>
+        <DeviceInfo>
+		<IS>
+			<connect nodeField='set_bind' protoField='set_bind'/>
+		</IS>
+          <FakeHapticsDevice DEF='FakeHapticsDevice' followViewpoint='false' set_deviceOrientation="1 0 0 -1.5708">
+			<IS>
+				<connect nodeField='set_devicePosition' protoField='set_devicePosition'/>
+				<connect nodeField='set_mainButton' protoField='set_mainButton'/>
+			</IS>
+            <RuspiniRenderer/>
+            <Group containerField = 'stylus'> 					
+
+						<Transform translation='0. 0. .0104'>
+							<Shape>
+								<Rectangle2D size='.0244 .1'/>
+								<Appearance>
+									<ImageTexture DEF="FRONT" repeatS='false' repeatT='false' url='WiiFront.png'/>
+								</Appearance>
+							</Shape>
+						</Transform>
+						
+						<Transform translation='0. 0. -.0104'>
+							<Shape>
+								<Rectangle2D size='.0244 .1'/>
+								<Appearance>
+									<ImageTexture DEF="BACK" repeatS='false' repeatT='false' url='WiiBack.png'/>
+								</Appearance>
+							</Shape>
+						</Transform>
+						
+						<Transform translation='-.0122 0. 0.' rotation='0 1 0 -1.5708'>
+							<Shape>
+								<Rectangle2D size='.0208 .1'/>
+								<Appearance>
+									<ImageTexture DEF="SIDE1"  repeatS='false' repeatT='false' url='WiiSide.png'/>
+								</Appearance>
+							</Shape>
+						</Transform>
+						
+						<Transform translation='.0122 0. 0.' rotation='0 1 0 -1.5708'>
+							<Shape>
+								<Rectangle2D size='.0208 .1'/>
+								<Appearance>
+									<ImageTexture DEF="SIDE2" repeatS='false' repeatT='false' url='WiiSide.png'/>
+								</Appearance>
+							</Shape>
+						</Transform>
+								
+						<Transform translation='0. -0.05 0.' rotation='1 0 0 1.5708'>
+							<Shape>
+								<Rectangle2D size='.0244 .0208'/>
+								<Appearance>
+									<ImageTexture DEF="BOTTOM" repeatS='false' repeatT='false' url='WiiBottom.png'/>
+								</Appearance>
+							</Shape>
+						</Transform>
+						
+						<Transform translation='0. 0.05 0.' rotation='1 0 0 -1.5708'>
+							<Shape>
+								<Rectangle2D size='.0244 .0208'/>
+								<Appearance>
+									<ImageTexture DEF="TOP" repeatS='false' repeatT='false' url='WiiTop.png'/>
+								</Appearance>
+							</Shape>
+						</Transform>
+						
+            </Group> 
+          </FakeHapticsDevice> 
+        </DeviceInfo>
+		<!--PythonScript DEF='PythonScript' url='rotation.py'>
+			<IS>
+				<connect nodeField='pitch' protoField='set_pitch'/>
+				<connect nodeField='roll' protoField='set_roll'/>
+				<connect nodeField='yaw' protoField='set_yaw'/>
+			</IS>
+			<ROUTE fromNode='PythonScript' fromField='rot_calculator' toNode='FakeHapticsDevice' toField='set_deviceOrientation'/>
+		</PythonScript-->
+			
+		
+      </ProtoBody>
+    </ProtoDeclare>
+  </Scene>
+</X3D>

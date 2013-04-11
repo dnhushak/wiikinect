@@ -1,0 +1,95 @@
+<Scene>
+	<ExternProtoDeclare name='WiiProxy'
+						url='WiiProxy.x3d#WiiProxy'>
+	 </ExternProtoDeclare>
+    <ProtoInstance name='WiiProxy' DEF='HDEV_Fake'>
+    </ProtoInstance>
+
+<!--everything in here is necessary for generating the grid-->
+<Group DEF="grid">
+</Group>
+
+<PythonScript url="grid.py">
+	<Group USE="grid" containerField="references"/>
+</PythonScript>
+<!--/grid-->
+  
+<Fog color="0 0 0" fogType="LINEAR" visibilityRange="3.5"/>  
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <Transform DEF='transform1' translation = '0 0.1 0'>
+    <ToggleGroup DEF='toggle1'>
+	<Shape DEF="shape1">
+		<Sphere DEF="redBall" radius='.05' containerField='geometry'/>
+        <Appearance>
+          <Material DEF="redBall-material" diffuseColor='1 0 0' transparency='0.1'/>
+          <SmoothSurface stiffness='0.1'/>
+        </Appearance>
+    </Shape>
+    </ToggleGroup>
+    <ViscosityEffect DEF='visc1'/>
+  </Transform>
+  <PythonScript url='grab.py'>
+    <Shape USE='shape1' containerField='references'/>
+    <Transform USE='transform1' containerField='references'/>
+    <ViscosityEffect USE='visc1' containerField='references'/>
+    <ToggleGroup USE='toggle1' containerField='references'/>
+  </PythonScript>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <Transform DEF='transform2' translation = '0 -0.1 0'>
+    <ToggleGroup DEF='toggle2'>
+	<Shape DEF="shape2">
+		<Sphere DEF="greenBall" radius='.05' containerField='geometry'/>
+        <Appearance>
+          <Material diffuseColor='0 1 0' transparency='0.1'/>
+          <FrictionalSurface damping='0' dynamicFriction='0.2' staticFriction='0.8' stiffness='1'/>
+        </Appearance>
+    </Shape>
+    </ToggleGroup>
+    <ViscosityEffect DEF='visc2'/>
+  </Transform>
+  <PythonScript url='grab.py'>
+    <Shape USE='shape2' containerField='references'/>
+    <Transform USE='transform2' containerField='references'/>
+    <ViscosityEffect USE='visc2' containerField='references'/>
+    <ToggleGroup USE='toggle2' containerField='references'/>
+  </PythonScript>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <Transform DEF='transform3' translation = '0 0 0.1'>
+    <ToggleGroup DEF='toggle3'>
+	<Shape DEF="shape3">
+		<Sphere DEF="blueBall" radius='.05' containerField='geometry'/>
+        <Appearance>
+          <Material diffuseColor='0 0 1 ' transparency='0.1'/>
+          <SmoothSurface stiffness='1.0'/>
+        </Appearance>
+    </Shape>
+    </ToggleGroup>
+    <ViscosityEffect DEF='visc3'/>
+  </Transform>
+  <PythonScript url='grab.py'>
+    <Shape USE='shape3' containerField='references'/>
+    <Transform USE='transform3' containerField='references'/>
+    <ViscosityEffect USE='visc3' containerField='references'/>
+    <ToggleGroup USE='toggle3' containerField='references'/>
+  </PythonScript>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+
+  
+  <!-- Defines all three fields -->  
+  <!--Transform translation='0 .15 0'>
+    <Cylinder DEF="cyl" radius='0.06' height = '0.01'/>
+    <Material diffuseColor='.1 .7 .8'/>
+    <FrictionalSurface damping='0' dynamicFriction='0.2' staticFriction='0.8' stiffness='1'/>
+  </Transform>
+  
+  <Transform translation='0 .1 0'>
+    <Rectangle2D DEF="rect" size='.03 .1'/>
+    <Material diffuseColor='0 1 0'/>
+  </Transform-->
+</Scene>
