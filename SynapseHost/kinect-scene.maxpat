@@ -31,6 +31,35 @@
 				"box" : 				{
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
+					"id" : "obj-12",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 720.0, 396.0, 74.0, 20.0 ],
+					"text" : "prepend roll"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-9",
+					"linecount" : 2,
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 801.0, 420.0, 50.0, 32.0 ],
+					"text" : "0.500429"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
 					"id" : "obj-43",
 					"maxclass" : "comment",
 					"numinlets" : 1,
@@ -141,7 +170,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 720.0, 420.0, 61.0, 20.0 ],
+					"patching_rect" : [ 720.0, 456.0, 61.0, 20.0 ],
 					"text" : "s toAudio"
 				}
 
@@ -1475,6 +1504,15 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-26", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-12", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-90", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -1682,7 +1720,16 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-26", 0 ],
+					"destination" : [ "obj-12", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-14", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-9", 1 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-14", 0 ]
@@ -2235,127 +2282,127 @@
  ],
 		"dependency_cache" : [ 			{
 				"name" : "util.oscToList.maxpat",
-				"bootpath" : "/Users/dnhushak/Desktop/Shared-Abstractions/Darren",
-				"patcherrelativepath" : "../Desktop/Shared-Abstractions/Darren",
+				"bootpath" : "/Users/dnhushak/Documents/Projects/Shared-Abstractions/Darren",
+				"patcherrelativepath" : "../../Shared-Abstractions/Darren",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "wii.controller.maxpat",
-				"bootpath" : "/Users/dnhushak/Desktop/wii",
-				"patcherrelativepath" : "../Desktop/wii",
+				"bootpath" : "/Users/dnhushak/Documents/Projects/Shared-Abstractions/Wii",
+				"patcherrelativepath" : "../../Shared-Abstractions/Wii",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "wiifront.png",
-				"bootpath" : "/Users/dnhushak/Desktop/wii",
-				"patcherrelativepath" : "../Desktop/wii",
+				"bootpath" : "/Users/dnhushak/Documents/Projects/Shared-Abstractions/Wii",
+				"patcherrelativepath" : "../../Shared-Abstractions/Wii",
 				"type" : "PNG ",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "wiiback.png",
-				"bootpath" : "/Users/dnhushak/Desktop/wii",
-				"patcherrelativepath" : "../Desktop/wii",
+				"bootpath" : "/Users/dnhushak/Documents/Projects/Shared-Abstractions/Wii",
+				"patcherrelativepath" : "../../Shared-Abstractions/Wii",
 				"type" : "PNG ",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "util.dynamicSend.maxpat",
-				"bootpath" : "/Users/dnhushak/Desktop/wii",
-				"patcherrelativepath" : "../Desktop/wii",
+				"bootpath" : "/Users/dnhushak/Documents/Projects/Shared-Abstractions/Darren",
+				"patcherrelativepath" : "../../Shared-Abstractions/Darren",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "util.listToOsc.maxpat",
-				"bootpath" : "/Users/dnhushak/Desktop/Shared-Abstractions/Darren",
-				"patcherrelativepath" : "../Desktop/Shared-Abstractions/Darren",
+				"bootpath" : "/Users/dnhushak/Documents/Projects/Shared-Abstractions/Darren",
+				"patcherrelativepath" : "../../Shared-Abstractions/Darren",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "util.dynamicReceive.maxpat",
-				"bootpath" : "/Users/dnhushak/Desktop/wii",
-				"patcherrelativepath" : "../Desktop/wii",
+				"bootpath" : "/Users/dnhushak/Documents/Projects/Shared-Abstractions/Darren",
+				"patcherrelativepath" : "../../Shared-Abstractions/Darren",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "wiichuck.png",
-				"bootpath" : "/Users/dnhushak/Desktop/wii",
-				"patcherrelativepath" : "../Desktop/wii",
+				"bootpath" : "/Users/dnhushak/Documents/Projects/Shared-Abstractions/Wii",
+				"patcherrelativepath" : "../../Shared-Abstractions/Wii",
 				"type" : "PNG ",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "wiichuckjoystickyl.png",
-				"bootpath" : "/Users/dnhushak/Desktop/wii",
-				"patcherrelativepath" : "../Desktop/wii",
+				"bootpath" : "/Users/dnhushak/Documents/Projects/Shared-Abstractions/Wii",
+				"patcherrelativepath" : "../../Shared-Abstractions/Wii",
 				"type" : "PNG ",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "wiichuckjoystickgr.png",
-				"bootpath" : "/Users/dnhushak/Desktop/wii",
-				"patcherrelativepath" : "../Desktop/wii",
+				"bootpath" : "/Users/dnhushak/Documents/Projects/Shared-Abstractions/Wii",
+				"patcherrelativepath" : "../../Shared-Abstractions/Wii",
 				"type" : "PNG ",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "wiichuckzyl.png",
-				"bootpath" : "/Users/dnhushak/Desktop/wii",
-				"patcherrelativepath" : "../Desktop/wii",
+				"bootpath" : "/Users/dnhushak/Documents/Projects/Shared-Abstractions/Wii",
+				"patcherrelativepath" : "../../Shared-Abstractions/Wii",
 				"type" : "PNG ",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "wiichuckzgr.png",
-				"bootpath" : "/Users/dnhushak/Desktop/wii",
-				"patcherrelativepath" : "../Desktop/wii",
+				"bootpath" : "/Users/dnhushak/Documents/Projects/Shared-Abstractions/Wii",
+				"patcherrelativepath" : "../../Shared-Abstractions/Wii",
 				"type" : "PNG ",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "wiichuckcyl.png",
-				"bootpath" : "/Users/dnhushak/Desktop/wii",
-				"patcherrelativepath" : "../Desktop/wii",
+				"bootpath" : "/Users/dnhushak/Documents/Projects/Shared-Abstractions/Wii",
+				"patcherrelativepath" : "../../Shared-Abstractions/Wii",
 				"type" : "PNG ",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "wiichuckcgr.png",
-				"bootpath" : "/Users/dnhushak/Desktop/wii",
-				"patcherrelativepath" : "../Desktop/wii",
+				"bootpath" : "/Users/dnhushak/Documents/Projects/Shared-Abstractions/Wii",
+				"patcherrelativepath" : "../../Shared-Abstractions/Wii",
 				"type" : "PNG ",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "wiimotion.png",
-				"bootpath" : "/Users/dnhushak/Desktop/wii",
-				"patcherrelativepath" : "../Desktop/wii",
+				"bootpath" : "/Users/dnhushak/Documents/Projects/Shared-Abstractions/Wii",
+				"patcherrelativepath" : "../../Shared-Abstractions/Wii",
 				"type" : "PNG ",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "wiimotionyl.png",
-				"bootpath" : "/Users/dnhushak/Desktop/wii",
-				"patcherrelativepath" : "../Desktop/wii",
+				"bootpath" : "/Users/dnhushak/Documents/Projects/Shared-Abstractions/Wii",
+				"patcherrelativepath" : "../../Shared-Abstractions/Wii",
 				"type" : "PNG ",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "wiimotiongr.png",
-				"bootpath" : "/Users/dnhushak/Desktop/wii",
-				"patcherrelativepath" : "../Desktop/wii",
+				"bootpath" : "/Users/dnhushak/Documents/Projects/Shared-Abstractions/Wii",
+				"patcherrelativepath" : "../../Shared-Abstractions/Wii",
 				"type" : "PNG ",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "battery10.png",
-				"bootpath" : "/Users/dnhushak/Desktop/wii",
-				"patcherrelativepath" : "../Desktop/wii",
+				"bootpath" : "/Users/dnhushak/Documents/Projects/Shared-Abstractions/Wii",
+				"patcherrelativepath" : "../../Shared-Abstractions/Wii",
 				"type" : "PNG ",
 				"implicit" : 1
 			}
